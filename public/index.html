@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Học Tập Cá Nhân</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="contact-info">
+                <span class="phone">📞 <span id="header-phone">0786985687</span></span>
+                <span class="email">✉️ <span id="header-email">huynhnhathunghhcl@gmail.com</span></span>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" id="navMenu">
+        <ul>
+            <li><a href="#intro" data-section="1">Giới thiệu giáo viên</a></li>
+            <li><a href="#content" data-section="2">Nội dung khóa học</a></li>
+            <li><a href="#reviews" data-section="3">Nhận xét</a></li>
+            <li><a href="#contact" data-section="4">Liên hệ</a></li>
+            <li><a href="admin.html" class="admin-link">🔐 Quản trị</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Section: Giới thiệu giáo viên -->
+            <section id="intro" class="content-section">
+                <h2>Giới thiệu giáo viên</h2>
+                <div class="section-content" id="section-1-content">
+                    <p>Đang tải...</p>
+                </div>
+                <div class="section-video" id="section-1-video"></div>
+            </section>
+
+            <!-- Section: Nội dung khóa học -->
+            <section id="content" class="content-section">
+                <h2>Nội dung khóa học</h2>
+                <div class="section-content" id="section-2-content">
+                    <p>Đang tải...</p>
+                </div>
+                <div class="section-video" id="section-2-video"></div>
+            </section>
+
+            <!-- Danh sách khóa học -->
+            <section class="courses-section">
+                <h2>Các khóa học</h2>
+                <div class="courses-grid" id="coursesGrid">
+                    <!-- Courses will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Section: Nhận xét -->
+            <section id="reviews" class="content-section">
+                <h2>Nhận xét</h2>
+                <div class="section-content" id="section-3-content">
+                    <p>Đang tải...</p>
+                </div>
+                <div class="section-video" id="section-3-video"></div>
+            </section>
+
+            <!-- Section: Liên hệ -->
+            <section id="contact" class="content-section">
+                <h2>Liên hệ</h2>
+                <div class="section-content" id="section-4-content">
+                    <p>Đang tải...</p>
+                </div>
+                <div class="section-video" id="section-4-video"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Gallery / Footer -->
+    <footer class="gallery-footer">
+        <div class="container">
+            <h2>Hình ảnh học trò</h2>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery images will be loaded here -->
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

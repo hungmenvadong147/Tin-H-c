@@ -1,0 +1,287 @@
+/* Reset và thiết lập cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    gap: 30px;
+    font-size: 14px;
+}
+
+.contact-info span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+.menu-toggle:hover span {
+    background-color: #3498db;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    background-color: #34495e;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.nav-menu.active {
+    max-height: 400px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li {
+    border-bottom: 1px solid #2c3e50;
+}
+
+.nav-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    transition: background-color 0.3s;
+}
+
+.nav-menu a:hover {
+    background-color: #2c3e50;
+}
+
+.nav-menu .admin-link {
+    background-color: #e74c3c;
+}
+
+.nav-menu .admin-link:hover {
+    background-color: #c0392b;
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px 0;
+}
+
+.content-section {
+    margin-bottom: 60px;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.content-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 28px;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.section-content {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.section-video {
+    margin-top: 20px;
+}
+
+.section-video video {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Courses Section */
+.courses-section {
+    margin: 60px 0;
+}
+
+.courses-section h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.course-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.course-card video {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.course-card-content {
+    padding: 20px;
+}
+
+.course-card h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.course-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Gallery Footer */
+.gallery-footer {
+    background-color: #ecf0f1;
+    padding: 60px 0;
+    margin-top: 60px;
+}
+
+.gallery-footer h2 {
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 32px;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    aspect-ratio: 1;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover .caption {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 12px;
+    }
+
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content-section {
+        padding: 20px;
+    }
+
+    .content-section h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
