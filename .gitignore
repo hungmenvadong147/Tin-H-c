@@ -3,3 +3,8 @@ node_modules/
 uploads/
 .env
 .DS_Store
+
+# TypeScript
+dist/
+public/js/
+*.tsbuildinfo
