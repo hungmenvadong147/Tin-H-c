@@ -1,7 +1,6 @@
 import express, { Request, Response, Application } from 'express';
 import sqlite3 from 'sqlite3';
 import multer, { StorageEngine } from 'multer';
-import path from 'path';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import fs from 'fs';
@@ -30,7 +29,7 @@ createUploadDirs();
 
 // Cấu hình multer để upload file
 const storage: StorageEngine = multer.diskStorage({
-  destination: (req: Request, file: Express.Multer.File, cb: (error: Error | null, destination: string) => void) => {
+  destination: (_req: Request, file: Express.Multer.File, cb: (error: Error | null, destination: string) => void) => {
     if (file.mimetype.startsWith('video/')) {
       cb(null, 'uploads/videos/');
     } else if (file.mimetype.startsWith('image/')) {
@@ -39,7 +38,7 @@ const storage: StorageEngine = multer.diskStorage({
       cb(null, 'uploads/');
     }
   },
-  filename: (req: Request, file: Express.Multer.File, cb: (error: Error | null, filename: string) => void) => {
+  filename: (_req: Request, file: Express.Multer.File, cb: (error: Error | null, filename: string) => void) => {
     cb(null, Date.now() + '-' + file.originalname);
   }
 });
@@ -116,7 +115,7 @@ const initDatabase = (): void => {
   )`);
 
   // Thêm dữ liệu mặc định
-  db.get("SELECT * FROM settings WHERE key = 'phone'", (err: Error | null, row: SettingRow) => {
+  db.get("SELECT * FROM settings WHERE key = 'phone'", (_err: Error | null, row: SettingRow) => {
     if (!row) {
       db.run("INSERT INTO settings (key, value) VALUES ('phone', '0786985687')");
       db.run("INSERT INTO settings (key, value) VALUES ('email', 'huynhnhathunghhcl@gmail.com')");
@@ -131,7 +130,7 @@ const initDatabase = (): void => {
 // API Routes
 
 // Lấy thông tin cài đặt
-app.get('/api/settings', (req: Request, res: Response): void => {
+app.get('/api/settings', (_req: Request, res: Response): void => {
   db.all("SELECT * FROM settings", (err: Error | null, rows: SettingRow[]) => {
     if (err) {
       res.status(500).json({ error: err.message });
@@ -160,7 +159,7 @@ app.put('/api/settings/:key', (req: Request, res: Response): void => {
 });
 
 // Lấy danh sách sections
-app.get('/api/sections', (req: Request, res: Response): void => {
+app.get('/api/sections', (_req: Request, res: Response): void => {
   db.all("SELECT * FROM sections", (err: Error | null, rows: Section[]) => {
     if (err) {
       res.status(500).json({ error: err.message });
@@ -195,7 +194,7 @@ app.put('/api/sections/:id', (req: Request, res: Response): void => {
 });
 
 // Lấy danh sách khóa học
-app.get('/api/courses', (req: Request, res: Response): void => {
+app.get('/api/courses', (_req: Request, res: Response): void => {
   db.all("SELECT * FROM courses ORDER BY created_at DESC", (err: Error | null, rows: Course[]) => {
     if (err) {
       res.status(500).json({ error: err.message });
@@ -243,7 +242,7 @@ app.delete('/api/courses/:id', (req: Request, res: Response): void => {
 });
 
 // Lấy danh sách ảnh gallery
-app.get('/api/gallery', (req: Request, res: Response): void => {
+app.get('/api/gallery', (_req: Request, res: Response): void => {
   db.all("SELECT * FROM gallery", (err: Error | null, rows: GalleryImage[]) => {
     if (err) {
       res.status(500).json({ error: err.message });
